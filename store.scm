@@ -30,7 +30,9 @@
 				(set! current-p (+ current-p 1))
 				(ref-val (- current-p 1))]
 			[else
-				(set! the-store! (vector-grow the-store! (make-vector (* (+ current-p 1) 2)) 0))
+				(set! the-store! (vector-grow the-store! 
+					                         (make-vector (* (+ current-p 1) 2)) 
+					                         0))
 				(vector-set! the-store! current-p val)
 				(set! current-p (+ current-p 1))
 				(ref-val (- current-p 1))
