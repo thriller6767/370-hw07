@@ -5,12 +5,13 @@
 ;; the-store! is the store!
 (define the-store! 'uninitialized)
 (define current-p 0)
+(define init-size 20)
 
 ;; (empty-store) return an empty Scheme list representing the empty
 ;; store.
 (define empty-store
 	(lambda ()
-		(make-vector 20)))
+		(make-vector init-size)))
 
 ;; (initialize-store!) it initializes the-store! to (empty-store)
 (define initialize-store!
@@ -29,9 +30,7 @@
 				(set! current-p (+ current-p 1))
 				(ref-val (- current-p 1))]
 			[else
-				(set! the-store! (vector-grow the-store! 
-											 (make-vector (+ current-p 20))
-											  0))
+				(set! the-store! (vector-grow the-store! (make-vector (* (+ current-p 1) 2)) 0))
 				(vector-set! the-store! current-p val)
 				(set! current-p (+ current-p 1))
 				(ref-val (- current-p 1))
