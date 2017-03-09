@@ -20,7 +20,7 @@
   (lambda (prog env)
     (cases program prog
       [a-prog (exp) (cons (value-of-exp exp env) env)]
-      [def-prog (var exp) (cons (unit-val) (extend-env var (newref! (value-of-exp exp env)) env))]
+      [def-prog (var exp) (display "use def-prog")(cons (unit-val) (extend-env var (newref! (value-of-exp exp env)) env))]
       [else (raise-exception 'value-of-prog "Abstract syntax case not implemented: ~s" (car prog))])))
 
 (define value-of-exp

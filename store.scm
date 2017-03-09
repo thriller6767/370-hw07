@@ -5,7 +5,7 @@
 ;; the-store! is the store!
 (define the-store! 'uninitialized)
 (define current-p 0)
-(define init-size 20)
+(define init-size 40)
 
 ;; (empty-store) return an empty Scheme list representing the empty
 ;; store.
